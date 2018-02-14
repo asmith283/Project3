@@ -5,7 +5,12 @@
 //  Created by Andrew on 2/14/18.
 //  Copyright © 2018 Andrew. All rights reserved.
 //
+#include <ctime>
 #include "Menu.h"
+#include "Event.h"
+#include <fstream>
+#include <iostream>
+#include <string.h>
 Menu::Menu()
 {
 }
@@ -14,6 +19,8 @@ Menu::~Menu()
 }
 void Menu::menuStart()
 {
+    string title, description;
+	int hour, minute, day, month, year;
     
     MONTH userMONTH = (MONTH)month;
     cout << "***Welcome!***" << endl;
@@ -23,16 +30,17 @@ void Menu::menuStart()
     if (choice == 1)
     {
         cout << "Title for the event: "; cin >> title;
-        e.editTitle(title);
+        //e.editTitle(title);
         cout << "Description: "; cin >> description;
-        e.editDescript(description);
+        //e.editDescript(description);
         cout << "day   : "; cin >> day;
         cout << "hour  : "; cin >> hour;
         cout << "minute: "; cin >> minute;
         cout << "year  : "; cin >> year;
         cout << "month : "; cin >> month;
-        e.editDate(day,userMONTH,year,hour,minute);
-        e.displayEvent();
+        //e.editDate(day,userMONTH,year,hour,minute);
+        //e.displayEvent();
+        container(title, description, hour, minute, day, month, year);
     }
     else if(choice == 2)
     {
